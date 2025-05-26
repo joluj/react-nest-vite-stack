@@ -51,10 +51,5 @@
       }
     }
   },
-  "generators": "packages/plugin/generators.json",
-  "files": [
-    "dist",
-    "!**/*.tsbuildinfo",
-    "packages/plugin/generators.json"
-  ]
+  "generators": "packages/plugin/generators.json"
 }
