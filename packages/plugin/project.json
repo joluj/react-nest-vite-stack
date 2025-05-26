@@ -1,0 +1,32 @@
+{
+  "name": "react-nest-vite-stack",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "packages/plugin/src",
+  "projectType": "library",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "packages/plugin/dist",
+        "main": "packages/plugin/src/index.ts",
+        "tsConfig": "packages/plugin/tsconfig.lib.json",
+        "rootDir": "packages/plugin/src",
+        "generatePackageJson": false,
+        "assets": [
+          {
+            "input": "./packages/plugin/src",
+            "glob": "**/!(*.ts)",
+            "output": "."
+          },
+          {
+            "input": "./packages/plugin/src",
+            "glob": "**/*.d.ts",
+            "output": "."
+          }
+        ]
+      }
+    }
+  }
+}
