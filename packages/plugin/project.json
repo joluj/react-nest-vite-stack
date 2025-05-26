@@ -11,6 +11,10 @@
       "options": {
         "outputPath": "packages/plugin/dist",
         "main": "packages/plugin/src/index.ts",
+        "additionalEntryPoints": [
+          "src/generators/nest/main.ts"
+        ],
+        "generateExportsField": true,
         "tsConfig": "packages/plugin/tsconfig.lib.json",
         "rootDir": "packages/plugin/src",
         "generatePackageJson": false,
@@ -23,6 +27,11 @@
           {
             "input": "./packages/plugin/src",
             "glob": "**/*.d.ts",
+            "output": "."
+          },
+          {
+            "input": "./packages/plugin/src/generators/nest/files",
+            "glob": "*",
             "output": "."
           }
         ]
