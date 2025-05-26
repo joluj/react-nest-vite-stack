@@ -1,0 +1,9 @@
+{
+  "generators": {
+    "nest": {
+      "factory": "./dist/packages/generators/nest/main",
+      "schema": "./dist/packages/generators/nest/schema.json",
+      "description": "nest generator"
+    }
+  }
+}

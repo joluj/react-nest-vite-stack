@@ -44,5 +44,11 @@
         }
       }
     }
-  }
+  },
+  "generators": "./generators.json",
+  "files": [
+    "dist",
+    "!**/*.tsbuildinfo",
+    "generators.json"
+  ]
 }
