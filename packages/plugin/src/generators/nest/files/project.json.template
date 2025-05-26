@@ -1,6 +1,6 @@
 {
-  "name": "<%= importName %>",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "name": "<%= name %>",
+  "$schema": "<%= workspaceRoot %>/node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "<%= projectRoot %>/src",
   "projectType": "application",
   "tags": [],

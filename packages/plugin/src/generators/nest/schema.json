@@ -16,12 +16,12 @@
     "importName": {
       "type": "string",
       "description": "NPM package name for the Nest application",
-      "x-prompt": "How do you want to import the Nest application in other projects?"
+      "x-prompt": "How do you want to import the Nest application in other projects? (default: {name})"
     },
     "projectRoot": {
       "type": "string",
       "description": "Root directory of the Nest application",
-      "x-prompt": "What should be the root directory of the Nest application?"
+      "x-prompt": "What should be the root directory of the Nest application? (default: apps/{name})"
     }
   },
   "required": ["name"]

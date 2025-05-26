@@ -4,25 +4,34 @@ import {
   generateFiles,
   Tree,
 } from '@nx/devkit';
-import * as path from 'path';
-import { NestGeneratorSchema } from './schema';
-// import z from 'zod';
+import * as path from 'node:path';
+import { NestGeneratorConfigInput, NestGeneratorConfigSchema } from './schema';
 
-// const NestGeneratorSchema2 = z.object({
-//   name: z.string(),
-//   projectRoot: z.string().default(`libs/{name}`),
-//   importName: z.string().optional(),
-// })
+function getPathDepth(relativePath: string): number {
+  const normalized = path.normalize(relativePath);
+  const parts = normalized.split(path.sep).filter(Boolean); // removes empty strings
+  return parts.length;
+}
 
-export async function nestGenerator(tree: Tree, options: NestGeneratorSchema) {
-  const projectRoot = `libs/${options.name}`;
+export async function nestGenerator(
+  tree: Tree,
+  unsanitizedOptions: NestGeneratorConfigInput
+) {
+  const options = NestGeneratorConfigSchema.parse(unsanitizedOptions);
+
   addProjectConfiguration(tree, options.name, {
-    root: projectRoot,
+    root: options.projectRoot,
+    name: options.name,
     projectType: 'library',
-    sourceRoot: `${projectRoot}/src`,
+    sourceRoot: `${options.projectRoot}/src`,
     targets: {},
   });
-  generateFiles(tree, path.join(__dirname, 'files'), projectRoot, options);
+  generateFiles(tree, path.join(__dirname, 'files'), options.projectRoot, {
+    ...options,
+    workspaceRoot: new Array(getPathDepth(options.projectRoot))
+      .fill('..')
+      .join('/'),
+  });
   await formatFiles(tree);
 }
 

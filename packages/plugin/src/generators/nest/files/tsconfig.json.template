@@ -3,7 +3,7 @@
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true
   },
-  "extends": "../../tsconfig.base.json",
+  "extends": "<%= workspaceRoot %>/tsconfig.base.json",
   "files": [],
   "include": [],
   "references": [
