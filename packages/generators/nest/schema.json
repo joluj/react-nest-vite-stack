@@ -6,12 +6,22 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "",
+      "description": "Name of the Nest application",
       "$default": {
         "$source": "argv",
         "index": 0
       },
-      "x-prompt": "What name would you like to use?"
+      "x-prompt": "What name would you like to use for the Nest application?"
+    },
+    "importName": {
+      "type": "string",
+      "description": "NPM package name for the Nest application",
+      "x-prompt": "How do you want to import the Nest application in other projects?"
+    },
+    "projectRoot": {
+      "type": "string",
+      "description": "Root directory of the Nest application",
+      "x-prompt": "What should be the root directory of the Nest application?"
     }
   },
   "required": ["name"]

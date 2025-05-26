@@ -1,0 +1,20 @@
+import { defineConfig } from 'vitest/config';
+import { VitePluginNode } from 'vite-plugin-node';
+
+export default defineConfig({
+  server: {
+    port: 3000,
+  },
+  plugins: [
+    ...VitePluginNode({
+      adapter: 'nest',
+      appPath: 'src/main.ts',
+      exportName: 'app',
+      tsCompiler: 'swc',
+      swcOptions: {
+        sourceMaps: 'inline',
+      },
+      outputFormat: 'esm',
+    }),
+  ],
+});

@@ -1,0 +1,13 @@
+import { Logger } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { AppModule } from './app/app.module';
+import { configureApp, GLOBAL_PREFIX, PORT } from './configureApp';
+
+export const app = await configureApp(await NestFactory.create(AppModule));
+
+if (process.env.NODE_ENV == 'production') {
+  await app.listen(PORT);
+  Logger.log(
+    `🚀 Application is running on: http://localhost:${PORT}/${GLOBAL_PREFIX}`
+  );
+}
