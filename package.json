@@ -2,7 +2,11 @@
   "name": "@react-nest-vite-stack/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build": "nx run-many --target=build --all --parallel",
+    "lint": "nx run-many --target=lint,typecheck --all --parallel",
+    "test": "nx run-many --target=test --all --parallel"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
