@@ -3,6 +3,8 @@ import {
   formatFiles,
   generateFiles,
   Tree,
+  addDependenciesToPackageJson,
+  installPackagesTask,
 } from '@nx/devkit';
 import * as path from 'node:path';
 import { NestGeneratorConfigInput, NestGeneratorConfigSchema } from './schema';
@@ -32,7 +34,22 @@ export async function nestGenerator(
       .fill('..')
       .join('/'),
   });
+  addDependenciesToPackageJson(
+    tree,
+    {
+      '@nestjs/common': '^10.0.0',
+      '@nestjs/core': '^10.0.0',
+      '@nestjs/platform-express': '^10.0.0',
+      '@nestjs/swagger': '^8.1.1',
+      '@nestjs/typeorm': '^10.0.0',
+    },
+    {}
+  );
   await formatFiles(tree);
+
+  return () => {
+    installPackagesTask(tree);
+  };
 }
 
 export default nestGenerator;

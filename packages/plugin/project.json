@@ -19,7 +19,7 @@
         "generateExportsField": true,
         "tsConfig": "packages/plugin/tsconfig.lib.json",
         "rootDir": "packages/plugin/src",
-        "generatePackageJson": false,
+        "generatePackageJson": true,
         "assets": [
           {
             "input": "./packages/plugin/src",
@@ -29,11 +29,6 @@
           {
             "input": "./packages/plugin/src",
             "glob": "**/*.d.ts",
-            "output": "."
-          },
-          {
-            "input": "./packages/plugin/src/generators/nest/files",
-            "glob": "*",
             "output": "."
           }
         ]
