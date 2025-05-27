@@ -28,5 +28,9 @@ export async function configureApp(app: INestApplication) {
     Logger.log(`OpenAPI spec written to ${apiSpecFile}`, 'OpenAPI');
   }
 
+  if (process.env.NODE_ENV?.toLowerCase() === 'development') {
+    app.enableCors();
+  }
+
   return app;
 }
