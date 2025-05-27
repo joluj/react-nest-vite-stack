@@ -1,6 +1,6 @@
 import z from 'zod';
 
-export const NestGeneratorConfigSchema = z
+export const ReactGeneratorConfigSchema = z
   .object({
     name: z.string().min(1, 'Name is required'),
     projectRoot: z.string().optional(),
@@ -12,7 +12,7 @@ export const NestGeneratorConfigSchema = z
     importName: data.importName || `${data.name}`,
   }));
 
-export type NestGeneratorConfig = z.infer<typeof NestGeneratorConfigSchema>;
-export type NestGeneratorConfigInput = z.input<
-  typeof NestGeneratorConfigSchema
+export type ReactGeneratorConfig = z.infer<typeof ReactGeneratorConfigSchema>;
+export type ReactGeneratorConfigInput = z.input<
+  typeof ReactGeneratorConfigSchema
 >;

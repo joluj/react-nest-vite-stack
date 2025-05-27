@@ -1,13 +1,13 @@
 import { createTreeWithEmptyWorkspace } from '@nx/devkit/testing';
 import { Tree, readProjectConfiguration } from '@nx/devkit';
 
-import { nestGenerator } from './main';
-import { NestGeneratorConfigInput } from './schema';
+import { reactGenerator } from './main';
+import { ReactGeneratorConfigInput } from './schema';
 import { describe, it, beforeEach, expect } from 'vitest';
 
 describe('nest generator', () => {
   let tree: Tree;
-  const options: NestGeneratorConfigInput = {
+  const options: ReactGeneratorConfigInput = {
     name: 'my-test-project',
     projectRoot: 'TEST-PROJECT-ROOT',
     importName: '@some-org/test',
@@ -18,7 +18,7 @@ describe('nest generator', () => {
   });
 
   it('should run successfully', async () => {
-    await nestGenerator(tree, options);
+    await reactGenerator(tree, options);
     const config = readProjectConfiguration(tree, 'my-test-project');
 
     expect(config).toBeDefined();
@@ -30,20 +30,20 @@ describe('nest generator', () => {
 
   describe('optional properties', () => {
     it('should set default projectRoot if not provided', async () => {
-      const optionsWithoutRoot: NestGeneratorConfigInput = {
+      const optionsWithoutRoot: ReactGeneratorConfigInput = {
         name: 'my-test-project',
       };
-      await nestGenerator(tree, optionsWithoutRoot);
+      await reactGenerator(tree, optionsWithoutRoot);
       const config = readProjectConfiguration(tree, 'my-test-project');
       expect(config.root).toBe('apps/my-test-project');
     });
 
     it('should set default importName if not provided', async () => {
-      const optionsWithoutImportName: NestGeneratorConfigInput = {
+      const optionsWithoutImportName: ReactGeneratorConfigInput = {
         name: 'my-test-project',
         projectRoot: 'libs/some-other-project-root',
       };
-      await nestGenerator(tree, optionsWithoutImportName);
+      await reactGenerator(tree, optionsWithoutImportName);
       expect(
         tree.read('libs/some-other-project-root/package.json')?.toString()
       ).toContain('"name": "my-test-project"');
@@ -57,7 +57,7 @@ describe('nest generator', () => {
         projectRoot: 'TEST-PROJECT-ROOT-ONE-LEVEL',
       };
       const root = optionsWithOneLevel.projectRoot;
-      await nestGenerator(tree, optionsWithOneLevel);
+      await reactGenerator(tree, optionsWithOneLevel);
       expect(tree.read(`${root}/eslint.config.mjs`)?.toString()).toContain(
         "import baseConfig from '../eslint.config.mjs';"
       );
@@ -75,7 +75,7 @@ describe('nest generator', () => {
         projectRoot: 'one/two/TEST-PROJECT-ROOT-THREE-LEVEL',
       };
       const root = optionsWithThreeLevels.projectRoot;
-      await nestGenerator(tree, optionsWithThreeLevels);
+      await reactGenerator(tree, optionsWithThreeLevels);
       expect(tree.read(`${root}/eslint.config.mjs`)?.toString()).toContain(
         "import baseConfig from '../../../eslint.config.mjs';"
       );

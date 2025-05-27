@@ -7,7 +7,10 @@ import {
   installPackagesTask,
 } from '@nx/devkit';
 import * as path from 'node:path';
-import { NestGeneratorConfigInput, NestGeneratorConfigSchema } from './schema';
+import {
+  ReactGeneratorConfigInput,
+  ReactGeneratorConfigSchema,
+} from './schema';
 import {
   addPathToTsconfig,
   commonDevDependencies,
@@ -21,11 +24,11 @@ function getPathDepth(relativePath: string): number {
   return parts.length;
 }
 
-export async function nestGenerator(
+export async function reactGenerator(
   tree: Tree,
-  unsanitizedOptions: NestGeneratorConfigInput
+  unsanitizedOptions: ReactGeneratorConfigInput
 ) {
-  const options = NestGeneratorConfigSchema.parse(unsanitizedOptions);
+  const options = ReactGeneratorConfigSchema.parse(unsanitizedOptions);
 
   addProjectConfiguration(tree, options.name, {
     root: options.projectRoot,
@@ -88,4 +91,4 @@ export async function nestGenerator(
   };
 }
 
-export default nestGenerator;
+export default reactGenerator;
