@@ -11,7 +11,7 @@ export const commonDevDependencies = {
   '@nx/web': '21.0.3',
   '@swc-node/register': '~1.9.1',
   '@swc/cli': '~0.6.0',
-  '@swc/core': '^1.5.7',
+  '@swc/core': '^1.7.26',
   '@swc/helpers': '~0.5.11',
   eslint: '^9.8.0',
   'eslint-config-prettier': '^10.0.0',
@@ -22,6 +22,7 @@ export const commonDevDependencies = {
   'typescript-eslint': '^8.19.0',
   prettier: '^2.6.2',
   'jsonc-eslint-parser': '^2.1.0',
+  vite: '^6.3.5',
 };
 
 export function setupNXPlugins(tree: Tree) {
@@ -72,6 +73,28 @@ export function addPathToTsconfig(tree: Tree, projectRoot: string) {
 }
 
 export function ensureGlobalSetup(tree: Tree) {
+  updateJson(tree, 'package.json', (json) => {
+    json.type = 'module';
+
+    json.scripts = json.scripts || {};
+    json.scripts.build =
+      json.scripts.build || 'nx run-many --target=build --all --parallel';
+    json.scripts.lint =
+      json.scripts.lint ||
+      'nx run-many --target=lint,typecheck --all --parallel';
+    json.scripts.test =
+      json.scripts.test || 'nx run-many --target=test --all --parallel';
+
+    return json;
+  });
+
+  updateJson(tree, 'tsconfig.base.json', (json) => {
+    json.module = 'esnext';
+    json.moduleResolution = 'bundler';
+
+    return json;
+  });
+
   generateFiles(
     tree,
     path.join(__dirname, './workspace-files'),

@@ -3,7 +3,12 @@
     "nest": {
       "factory": "./dist/generators/nest/main",
       "schema": "./dist/generators/nest/schema.json",
-      "description": "nest generator"
+      "description": "Generator for NestJS applications"
+    },
+    "react": {
+      "factory": "./dist/generators/react/main",
+      "schema": "./dist/generators/react/schema.json",
+      "description": "Generator for React (and Tailwind and ShadCN) applications"
     }
   }
 }
