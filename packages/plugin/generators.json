@@ -9,6 +9,11 @@
       "factory": "./dist/generators/react/main",
       "schema": "./dist/generators/react/schema.json",
       "description": "Generator for React (and Tailwind and ShadCN) applications"
+    },
+    "rtkq-store": {
+      "factory": "./dist/generators/rtkq-store/main",
+      "schema": "./dist/generators/rtkq-store/schema.json",
+      "description": "Generator for adding an RTK Query store to a React application"
     }
   }
 }

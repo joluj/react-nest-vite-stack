@@ -1,0 +1,3 @@
+import { rawBackendApi } from './backendApi.generated';
+
+export const BackenApi = rawBackendApi.enhanceEndpoints({});

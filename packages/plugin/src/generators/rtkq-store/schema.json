@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/schema",
+  "$id": "RTKQ-Store",
+  "title": "Add an RTKQ store to your React application",
+  "type": "object",
+  "properties": {
+    "pathToFrontend": {
+      "type": "string",
+      "description": "Path to your React application?",
+      "x-prompt": "What is the path to your React application? (e.g., `apps/webapp`)"
+    },
+    "openApiSpec": {
+      "type": "string",
+      "description": "OpenAPI specification file path",
+      "x-prompt": "Where is your OpenAPI specification file located? (e.g., `apps/backend/src/openapi.yaml`)"
+    }
+  },
+  "required": ["pathToFrontend", "openApiSpec"]
+}

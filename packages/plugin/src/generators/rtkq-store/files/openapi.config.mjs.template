@@ -1,0 +1,19 @@
+import { resolve } from 'node:path';
+
+/** @type {import('@rtk-query/codegen-openapi').ConfigFile}  */
+const config = {
+  schemaFile: resolve(
+    import.meta.dirname,
+    <% openApiSpec %>
+  ),
+  apiFile: resolve(import.meta.dirname, './src/store/emptyApi.ts'),
+  apiImport: 'emptyApi',
+  outputFile: resolve(
+    import.meta.dirname,
+    './src/store/backendApi.generated.ts'
+  ),
+  exportName: 'rawBackendApi',
+  hooks: true,
+};
+
+export default config;
