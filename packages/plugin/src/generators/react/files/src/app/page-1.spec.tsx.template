@@ -1,0 +1,14 @@
+import { render } from '@testing-library/react';
+import { Page1 } from './page-1';
+
+describe('Page 1', () => {
+  it('should contain identification', () => {
+    const { getAllByText } = render(<Page1 />);
+
+    expect(
+      getAllByText(new RegExp('Page 1', 'gi')).length
+    ).toBeGreaterThanOrEqual(1);
+
+    expect(getAllByText(new RegExp('Page 2', 'gi'))).toHaveLength(1);
+  });
+});

@@ -2,12 +2,28 @@ import { StrictMode } from 'react';
 import * as ReactDOM from 'react-dom/client';
 import { createBrowserRouter, RouterProvider } from 'react-router';
 
-import App from './app/app';
+import { App } from './app/app';
+import { Page1 } from './app/page-1';
+import { Page2 } from './app/page-2';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    Component: App
+    Component: App,
+    children: [
+      {
+        index: true,
+        Component: Page1,
+      },
+      {
+        path: 'page-1',
+        Component: Page1,
+      },
+      {
+        path: 'page-2',
+        Component: Page2,
+      },
+    ],
   },
 ]);
 

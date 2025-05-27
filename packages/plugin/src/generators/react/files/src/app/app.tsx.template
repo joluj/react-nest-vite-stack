@@ -1,0 +1,12 @@
+import { Outlet } from 'react-router';
+
+export const App = () => {
+  return (
+    <div className="">
+      <h1 className="m-4 text-3xl font-bold">Welcome to Example React App!</h1>
+      <main>
+        <Outlet />
+      </main>
+    </div>
+  );
+};

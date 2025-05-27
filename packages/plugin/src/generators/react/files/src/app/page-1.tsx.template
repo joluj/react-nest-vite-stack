@@ -1,0 +1,14 @@
+export const Page1 = () => {
+  return (
+    <div className="p-4">
+      <h2 className="text-2xl font-bold">Page 1</h2>
+      <p className="mt-2">This is the content of Page 1.</p>
+      <a className="p-2 text-pink-500 cursor-pointer" href="/page-1">
+        Page 1
+      </a>
+      <a className="p-2 text-purple-500 cursor-pointer" href="/page-2">
+        Page 2
+      </a>
+    </div>
+  );
+};

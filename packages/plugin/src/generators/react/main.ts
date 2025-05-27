@@ -70,6 +70,7 @@ export async function nestGenerator(
       postcss: '^8.5.3',
       sass: '^1.55.0',
       'vite-plugin-node': '^5.0.1',
+      'vite-tsconfig-paths': '^5.1.4',
       vitest: '^3.0.0',
     }
   );
