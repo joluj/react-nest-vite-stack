@@ -50,6 +50,8 @@ export async function nestGenerator(
       tailwindcss: '^4.1.7',
       'class-variance-authority': '^0.7.1',
       clsx: '^2.1.1',
+      react: '19.0.0',
+      'react-dom': '19.0.0',
       'react-router': '^7.2.0',
     },
     {

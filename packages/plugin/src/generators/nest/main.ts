@@ -50,6 +50,7 @@ export async function nestGenerator(
       '@nestjs/typeorm': '^10.0.0',
       'class-transformer': '^0.5.1',
       'class-validator': '^0.14.2',
+      'reflect-metadata': '^0.1.13',
     },
     {
       ...commonDevDependencies,
