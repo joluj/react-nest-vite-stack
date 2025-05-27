@@ -1,6 +1,6 @@
 {
   "name": "react-nest-vite-stack",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "generators": "./generators.json",
   "type": "commonjs",
   "main": "./dist/index.js",

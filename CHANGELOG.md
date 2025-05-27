@@ -1,3 +1,14 @@
+## 0.0.4 (2025-05-27)
+
+### 🩹 Fixes
+
+- **nest:** fix validation ([e08be34](https://github.com/joluj/react-nest-vite-stack/commit/e08be34))
+- **react:** fix validation ([17582dd](https://github.com/joluj/react-nest-vite-stack/commit/17582dd))
+
+### ❤️ Thank You
+
+- joluj
+
 ## 0.0.3 (2025-05-27)
 
 ### 🚀 Features
