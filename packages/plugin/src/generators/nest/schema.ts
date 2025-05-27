@@ -2,7 +2,7 @@ import z from 'zod';
 
 export const NestGeneratorConfigSchema = z
   .object({
-    name: z.string(),
+    name: z.string().min(1, 'Name is required'),
     projectRoot: z.string().optional(),
     importName: z.string().optional(),
   })
