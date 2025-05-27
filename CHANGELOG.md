@@ -1,3 +1,13 @@
+## 0.1.0 (2025-05-27)
+
+### 🚀 Features
+
+- **rtkq:** add build target dependency ([4654266](https://github.com/joluj/react-nest-vite-stack/commit/4654266))
+
+### ❤️ Thank You
+
+- joluj
+
 ## 0.1.0-0 (2025-05-27)
 
 ### 🚀 Features
