@@ -90,8 +90,8 @@ export function ensureGlobalSetup(tree: Tree) {
   });
 
   updateJson(tree, 'tsconfig.base.json', (json) => {
-    json.module = 'esnext';
-    json.moduleResolution = 'bundler';
+    json.compilerOptions.module = 'esnext';
+    json.compilerOptions.moduleResolution = 'bundler';
 
     return json;
   });
