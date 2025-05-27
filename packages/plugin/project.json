@@ -16,10 +16,10 @@
         "additionalEntryPoints": [
           "src/generators/nest/main.ts"
         ],
-        "generateExportsField": true,
+        "generateExportsField": false,
         "tsConfig": "packages/plugin/tsconfig.lib.json",
         "rootDir": "packages/plugin/src",
-        "generatePackageJson": true,
+        "generatePackageJson": false,
         "assets": [
           {
             "input": "./packages/plugin/src",
