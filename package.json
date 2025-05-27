@@ -7,6 +7,7 @@
     "lint": "nx run-many --target=lint,typecheck --all --parallel",
     "test": "nx run-many --target=test --all --parallel"
   },
+  "type": "module",
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",
