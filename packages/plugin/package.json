@@ -1,6 +1,14 @@
 {
   "name": "react-nest-vite-stack",
   "version": "0.0.4",
+  "license": "MIT",
+  "homepage": "https://github.com/joluj/react-nest-vite-stack",
+  "bugs": "https://github.com/joluj/react-nest-vite-stack",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joluj/react-nest-vite-stack.git",
+    "directory": "packages/plugin"
+  },
   "generators": "./generators.json",
   "type": "commonjs",
   "main": "./dist/index.js",
