@@ -83,7 +83,8 @@ export function ensureGlobalSetup(tree: Tree) {
       json.scripts.lint ||
       'nx run-many --target=lint,typecheck --all --parallel';
     json.scripts.test =
-      json.scripts.test || 'nx run-many --target=test --all --parallel';
+      json.scripts.test ||
+      'nx run-many --target=test --all --parallel --watch=false';
 
     return json;
   });
