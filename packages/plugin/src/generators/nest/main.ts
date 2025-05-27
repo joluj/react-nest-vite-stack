@@ -8,6 +8,12 @@ import {
 } from '@nx/devkit';
 import * as path from 'node:path';
 import { NestGeneratorConfigInput, NestGeneratorConfigSchema } from './schema';
+import {
+  addPathToTsconfig,
+  commonDevDependencies,
+  ensureGlobalSetup,
+  setupNXPlugins,
+} from '../common';
 
 function getPathDepth(relativePath: string): number {
   const normalized = path.normalize(relativePath);
@@ -42,9 +48,25 @@ export async function nestGenerator(
       '@nestjs/platform-express': '^10.0.0',
       '@nestjs/swagger': '^8.1.1',
       '@nestjs/typeorm': '^10.0.0',
+      'class-transformer': '^0.5.1',
+      'class-validator': '^0.14.2',
     },
-    {}
+    {
+      ...commonDevDependencies,
+      '@nestjs/schematics': '^10.0.1',
+      '@nestjs/testing': '^10.0.2',
+      '@nx/nest': '21.0.3',
+      '@types/node': '^20.0.0',
+      '@types/supertest': '^6.0.3',
+      'vite-plugin-node': '^5.0.1',
+      supertest: '^7.1.1',
+    }
   );
+
+  ensureGlobalSetup(tree);
+  setupNXPlugins(tree);
+  addPathToTsconfig(tree, options.projectRoot);
+
   await formatFiles(tree);
 
   return () => {
