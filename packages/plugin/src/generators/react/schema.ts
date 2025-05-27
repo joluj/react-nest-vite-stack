@@ -8,8 +8,8 @@ export const NestGeneratorConfigSchema = z
   })
   .transform((data) => ({
     ...data,
-    projectRoot: data.projectRoot ?? `apps/${data.name}`,
-    importName: data.importName ?? `${data.name}`,
+    projectRoot: data.projectRoot || `apps/${data.name}`,
+    importName: data.importName || `${data.name}`,
   }));
 
 export type NestGeneratorConfig = z.infer<typeof NestGeneratorConfigSchema>;
