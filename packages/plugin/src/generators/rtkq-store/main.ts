@@ -1,6 +1,7 @@
 import {
   addDependenciesToPackageJson,
   formatFiles,
+  generateFiles,
   installPackagesTask,
   Tree,
   updateJson,
@@ -9,6 +10,7 @@ import {
   RtkqStoreGeneratorConfigInput,
   RtkqStoreGeneratorConfigSchema,
 } from './schema';
+import path from 'node:path';
 
 export async function appendLineOrCreate(
   tree: Tree,
@@ -55,6 +57,12 @@ export async function rtkqGenerator(
 
   updateJson(tree, `${options.pathToFrontend}/project.json`, (json) => {
     json.targets = json.targets || {};
+    // Build dependsOn
+    json.targets['build'] = {
+      ...json.targets['build'],
+      dependsOn: ['generate-code', ...(json.targets['build'].dependsOn || [])],
+    };
+    // Gen code
     json.targets['generate-code'] = {
       executor: 'nx:run-commands',
       options: {
@@ -63,6 +71,10 @@ export async function rtkqGenerator(
       },
     };
     return json;
+  });
+
+  generateFiles(tree, path.join(__dirname, 'files'), options.pathToFrontend, {
+    ...options,
   });
 
   await formatFiles(tree);
