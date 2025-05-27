@@ -1,5 +1,7 @@
-import { INestApplication, ValidationPipe } from '@nestjs/common';
+import { INestApplication, Logger, ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import * as process from 'node:process';
+import * as fs from 'node:fs/promises';
 
 export const PORT = process.env.PORT || '3000';
 export const GLOBAL_PREFIX = 'api';
@@ -19,6 +21,12 @@ export async function configureApp(app: INestApplication) {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
+
+  if (process.env.NODE_ENV?.toLowerCase() !== 'test') {
+    const apiSpecFile = 'openapi.spec.json';
+    await fs.writeFile(apiSpecFile, JSON.stringify(documentFactory(), null, 2));
+    Logger.log(`OpenAPI spec written to ${apiSpecFile}`, 'OpenAPI');
+  }
 
   return app;
 }
