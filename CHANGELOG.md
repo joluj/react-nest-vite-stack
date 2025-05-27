@@ -1,3 +1,18 @@
+## 0.1.0-0 (2025-05-27)
+
+### 🚀 Features
+
+- **nest:** add openapi spec ([96bd06b](https://github.com/joluj/react-nest-vite-stack/commit/96bd06b))
+- **rtkq:** add rtkq store generator ([3180a9e](https://github.com/joluj/react-nest-vite-stack/commit/3180a9e))
+
+### 🩹 Fixes
+
+- **nest:** allow cors in dev mode ([63cb86a](https://github.com/joluj/react-nest-vite-stack/commit/63cb86a))
+
+### ❤️ Thank You
+
+- joluj
+
 ## 0.0.5 (2025-05-27)
 
 This was a version bump only, there were no code changes.
