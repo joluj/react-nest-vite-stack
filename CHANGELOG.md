@@ -1,3 +1,13 @@
+## 0.1.1 (2025-05-28)
+
+### 🩹 Fixes
+
+- **rtkq:** code generation dependency is now inserted properly ([4b8f925](https://github.com/joluj/react-nest-vite-stack/commit/4b8f925))
+
+### ❤️ Thank You
+
+- joluj
+
 ## 0.1.0 (2025-05-27)
 
 ### 🚀 Features
