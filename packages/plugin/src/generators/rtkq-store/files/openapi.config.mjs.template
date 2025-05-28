@@ -4,7 +4,8 @@ import { resolve } from 'node:path';
 const config = {
   schemaFile: resolve(
     import.meta.dirname,
-    <% openApiSpec %>
+    <%= workspaceRoot %>,
+    <%= openApiSpec %>
   ),
   apiFile: resolve(import.meta.dirname, './src/store/emptyApi.ts'),
   apiImport: 'emptyApi',

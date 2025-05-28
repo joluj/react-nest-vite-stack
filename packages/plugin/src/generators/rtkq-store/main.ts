@@ -12,6 +12,12 @@ import {
 } from './schema';
 import path from 'node:path';
 
+function getPathDepth(relativePath: string): number {
+  const normalized = path.normalize(relativePath);
+  const parts = normalized.split(path.sep).filter(Boolean); // removes empty strings
+  return parts.length;
+}
+
 export async function appendLineOrCreate(
   tree: Tree,
   file: string,
@@ -75,6 +81,9 @@ export async function rtkqGenerator(
 
   generateFiles(tree, path.join(__dirname, 'files'), options.pathToFrontend, {
     ...options,
+    workspaceRoot: new Array(getPathDepth(options.pathToFrontend))
+      .fill('..')
+      .join('/'),
   });
 
   await formatFiles(tree);
