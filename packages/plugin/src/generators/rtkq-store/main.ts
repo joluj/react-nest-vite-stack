@@ -60,7 +60,7 @@ export async function rtkqGenerator(
     // Build dependsOn
     json.targets['build'] = {
       ...json.targets['build'],
-      dependsOn: ['generate-code', ...(json.targets['build'].dependsOn || [])],
+      dependsOn: ['generate-code', ...(json.targets['build']?.dependsOn || [])],
     };
     // Gen code
     json.targets['generate-code'] = {
