@@ -1,3 +1,13 @@
+## 0.1.2 (2025-05-28)
+
+### 🩹 Fixes
+
+- **rtkq:** fill in path to openapi spec ([4ce26d4](https://github.com/joluj/react-nest-vite-stack/commit/4ce26d4))
+
+### ❤️ Thank You
+
+- joluj
+
 ## 0.1.1 (2025-05-28)
 
 ### 🩹 Fixes
